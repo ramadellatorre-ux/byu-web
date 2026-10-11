@@ -1,0 +1,5 @@
+# Sirve cuando byu. tenga dominio propio (los buscadores solo leen el robots.txt de la raíz del dominio).
+User-agent: *
+Allow: /
+Disallow: /dispositivos.html
+Sitemap: https://ramadellatorre-ux.github.io/byu-web/sitemap.xml

@@ -11,88 +11,21 @@
 
   // ===== CONTENIDO =====
   const DATA = {
-    comun: { costo: 300 },
-    clinica: {
-      hero: { pre: ['Tu', 'clínica,', 'funcionando'], key: 'sola' },
-      heroBajada: 'Atendemos tu WhatsApp las 24 horas, confirmamos turnos, cobramos cuotas y te mostramos cuánta plata recuperaste.',
-      heroLoss: 'Una clínica con 6 profesionales y 15% de ausentismo pierde unos USD 3.500 por mes.',
-      waText: 'Hola byu., tengo una clínica y quiero dejar de perder turnos.',
-      chatName: 'Consultorios Sur',
-      chat: [
-        { who: 'in', text: 'Hola! ¿Tienen turno con la Dra. Paz esta semana?', time: '23:41' },
-        { who: 'out', text: '¡Hola Sofi! Sí: jueves 10:30 o viernes 16:00. ¿Cuál te queda mejor?', time: '23:41' },
-        { who: 'in', text: 'Jueves 10:30.', time: '23:42' },
-        { who: 'card', title: 'Turno confirmado', detail: 'Jueves 10:30 · Dra. Paz', note: 'Te lo recordamos 48 h y 24 h antes.', time: '23:42' }
-      ],
-      probSub: 'Cuatro fugas de plata que vemos en casi todas las clínicas.',
-      cards: [
-        { hoy: 'La recepción no da abasto: más de 100 WhatsApps por día.', con: 'Recepcionista en WhatsApp conectada a tu agenda.' },
-        { hoy: 'Pacientes que faltan sin avisar.', con: 'Recordatorios a 48 h y 24 h con confirmación y lista de espera.' },
-        { hoy: 'Consultas de noche que nadie responde.', con: 'Atención 24/7 que reserva el turno en el momento.' },
-        { hoy: 'Pacientes que no vuelven.', con: 'Reactivación automática cuando toca volver.' }
-      ],
-      calcSub: 'Mové los números de tu clínica. La cuenta es simple.',
-      calc: [
-        { key: 'prof', label: 'Profesionales', min: 1, max: 30, step: 1, def: 6 },
-        { key: 'turnos', label: 'Turnos por día, por profesional', min: 4, max: 30, step: 1, def: 12 },
-        { key: 'valor', label: 'Valor del turno', min: 5, max: 120, step: 1, def: 15, pre: 'USD ' },
-        { key: 'aus', label: 'Ausentismo', min: 0, max: 40, step: 1, def: 15, suf: '%' }
-      ],
-      formula: 'Pérdida = profesionales × turnos por día × 22 días × valor del turno × ausentismo. Plata recuperada: un tercio de esa pérdida.',
-      nightSub: 'De noche entran consultas. El búho responde, reserva el turno y deja todo listo para la mañana.',
-      night: [
-        { who: 'in', text: 'Hola, ¿mañana hay turno con traumatología?', time: '23:12' },
-        { who: 'out', text: 'Hola Marta. Sí: 9:15 o 11:40 con el Dr. Ruiz. ¿Cuál te reservo?', time: '23:12' },
-        { who: 'in', text: '9:15', time: '23:14' },
-        { who: 'out', text: 'Listo, turno confirmado. Te recuerdo mañana a las 8.', time: '23:14' }
-      ],
-      copiloto: { saludo: 'Buen lunes. Esta semana:', items: [
-        '9 pacientes no vuelven hace 6 meses. Ya les escribimos.',
-        'Los martes a la mañana tenés 30% de huecos: abrimos la lista de espera.',
-        'El ausentismo bajó del 15% al 7%. Revisá quién sigue faltando.'
-      ] }
-    },
-    gimnasio: {
-      hero: { pre: ['Tu', 'gimnasio,', 'funcionando'], key: 'solo' },
-      heroBajada: 'Atendemos tu WhatsApp las 24 horas, reservamos clases, cobramos cuotas y te mostramos cuánta plata recuperaste.',
-      heroLoss: 'Un gimnasio con 300 socios pierde unos USD 1.000 por mes entre bajas y consultas sin responder.',
-      waText: 'Hola byu., tengo un gimnasio y quiero dejar de perder socios.',
-      chatName: 'Gimnasio Norte',
-      chat: [
-        { who: 'in', text: 'Hola, ¿cuánto sale la cuota? Quiero arrancar', time: '22:15' },
-        { who: 'out', text: '¡Hola Nico! USD 30 por mes, pase libre. ¿Querés una clase de prueba gratis?', time: '22:15' },
-        { who: 'in', text: 'Dale, mañana a la tarde', time: '22:16' },
-        { who: 'card', title: 'Clase reservada', detail: 'Mañana 19:00 · Funcional', note: 'Te avisamos 2 h antes.', time: '22:16' }
-      ],
-      probSub: 'Cuatro fugas de plata que vemos en casi todos los gimnasios.',
-      cards: [
-        { hoy: 'Consultas de Instagram y WhatsApp sin responder.', con: 'Respuesta inmediata, clase de prueba y seguimiento.' },
-        { hoy: 'Socios que se van sin que nadie lo note.', con: 'Alertas de inactividad y mensaje del coach.' },
-        { hoy: 'Cuotas cobradas a mano.', con: 'Cobranza automática con link de Mercado Pago.' },
-        { hoy: 'Reservas anotadas en un cuaderno.', con: 'Reservas por WhatsApp con cupo automático.' }
-      ],
-      calcSub: 'Mové los números de tu gimnasio. La cuenta es simple.',
-      calc: [
-        { key: 'socios', label: 'Socios activos', min: 50, max: 2000, step: 10, def: 300 },
-        { key: 'bajas', label: 'Bajas por mes', min: 1, max: 20, step: 1, def: 6, suf: '%' },
-        { key: 'cuota', label: 'Cuota mensual', min: 10, max: 120, step: 1, def: 30, pre: 'USD ' },
-        { key: 'consultas', label: 'Consultas sin responder por mes', min: 0, max: 300, step: 5, def: 80 }
-      ],
-      formula: 'Pérdida = socios × bajas × cuota + consultas sin responder × 20% × cuota. Plata recuperada: un tercio de esa pérdida.',
-      nightSub: 'De noche entran consultas. El búho responde, reserva la clase y deja todo listo para la mañana.',
-      night: [
-        { who: 'in', text: '¿Mañana abren a las 7?', time: '00:41' },
-        { who: 'out', text: 'Sí, de 7 a 23. ¿Te reservo lugar en funcional de las 7:30?', time: '00:41' },
-        { who: 'in', text: 'Dale', time: '00:42' },
-        { who: 'out', text: 'Reservado. Quedan 3 lugares y el tuyo ya está.', time: '00:42' }
-      ],
-      copiloto: { saludo: 'Buen lunes. Esta semana:', items: [
-        '4 socios no vienen hace 10 días. Ya les escribimos.',
-        'Funcional de las 19 se llena los martes: sumá un horario.',
-        '12 cuotas vencen el viernes. El link de Mercado Pago ya salió.'
-      ] }
-    }
+    waText: 'Hola byu., quiero automatizar mi negocio.',
+    chat: [
+      { who: 'in', text: '¡Hola! ¿Tienen turno esta semana?', time: '23:41' },
+      { who: 'out', text: '¡Hola Sofi! Sí: jueves 10:30 o viernes 16:00. ¿Cuál te queda mejor?', time: '23:41' },
+      { who: 'in', text: 'Jueves 10:30.', time: '23:42' },
+      { who: 'card', title: 'Turno confirmado', detail: 'Jueves 10:30', note: 'Te mandamos el link de pago y te lo recordamos 24 h antes.', time: '23:42' }
+    ],
+    night: [
+      { who: 'in', text: 'Hola, ¿mañana tienen lugar a la mañana?', time: '23:12' },
+      { who: 'out', text: '¡Hola Marta! Sí: 9:15 o 11:40. ¿Cuál te reservo?', time: '23:12' },
+      { who: 'in', text: '9:15', time: '23:14' },
+      { who: 'out', text: 'Listo, quedó confirmado. Te lo recuerdo mañana a las 8.', time: '23:14' }
+    ]
   };
+  // Los textos de la transformación, el copiloto y las preguntas están en index.html.
   // ===== FIN CONTENIDO =====
 
   const d = document, $ = (s, r = d) => r.querySelector(s), $$ = (s, r = d) => [...r.querySelectorAll(s)];
@@ -100,17 +33,12 @@
   const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const touch = matchMedia('(hover: none)').matches;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const fmt = n => Math.round(n).toLocaleString('es-AR');
   const clamp01 = x => Math.max(0, Math.min(1, x));
   const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
                   set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
 
   // ----- estado -----
-  const vals = {};
-  ['clinica', 'gimnasio'].forEach(k => { vals[k] = {}; DATA[k].calc.forEach(s => { vals[k][s.key] = s.def; }); });
-  const saved = store.get('byu_rubro');
-  const S = { rubro: saved === 'gimnasio' ? 'gimnasio' : 'clinica', night: 0, nightManual: false, calcSeen: false, flown: false, compact: null };
-  const T = () => DATA[S.rubro];
+  const S = { night: 0, nightManual: false, flown: false, compact: null, tAuto: false, tTouched: false };
   const timers = [];
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
   let chatTimers = [];
@@ -119,9 +47,8 @@
   const numero = () => NUMERO.replace(/\D/g, '');
   const wa = txt => numero() ? 'https://wa.me/' + numero() + '?text=' + encodeURIComponent(txt) : '#contacto';
   function setLinks() {
-    const isC = S.rubro === 'clinica';
-    $$('[data-wa]').forEach(a => { a.href = wa(T().waText); toggleTarget(a); });
-    $$('[data-plan]').forEach(a => { a.href = wa('Hola byu., quiero el plan ' + a.dataset.plan + ' para mi ' + (isC ? 'clínica' : 'gimnasio') + '.'); toggleTarget(a); });
+    $$('[data-wa]').forEach(a => { a.href = wa(DATA.waText); toggleTarget(a); });
+    $$('[data-plan]').forEach(a => { a.href = wa('Hola byu., quiero el plan ' + a.dataset.plan + ' para mi negocio.'); toggleTarget(a); });
   }
   function toggleTarget(a) { if (numero()) a.target = '_blank'; else a.removeAttribute('target'); }
 
@@ -243,16 +170,6 @@
     dot.style.transform = c ? 'translateX(-1589px)' : '';
   }
 
-  // ----- textos que cambian por rubro -----
-  function renderText() {
-    $$('[data-t]').forEach(el => { const v = T()[el.dataset.t]; if (v != null) el.textContent = v; });
-    const h = $('[data-hero-title]');
-    splitTitle(h, T().hero);
-    $$('[data-rubro]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.rubro === S.rubro)));
-    $('[data-chat-aria]').setAttribute('aria-label', 'Demo de chat: ' + T().chat.map(m => m.text || (m.title + ', ' + m.detail)).join(' / '));
-    $('[data-form-rubro]').value = S.rubro;
-  }
-
   // ----- demo de chat -----
   const chatBox = $('[data-chat]');
   function msgEl(m) {
@@ -278,7 +195,7 @@
   function startChat() {
     chatTimers.forEach(clearTimeout); chatTimers = [];
     chatBox.innerHTML = ''; typingEl = null;
-    const msgs = T().chat;
+    const msgs = DATA.chat;
     if (rm) { msgs.forEach(m => chatBox.appendChild(msgEl(m))); return; }
     let t = 700;
     msgs.forEach(m => {
@@ -288,92 +205,47 @@
     });
   }
 
-  // ----- tarjetas Hoy / Con byu. -----
-  const cardsBox = $('[data-cards]'), flipLabel = $('[data-flip-label]');
-  function renderCards() {
-    cardsBox.innerHTML = T().cards.map((c, i) => `
-      <button type="button" class="card" data-card="${i}" aria-pressed="false" aria-label="Hoy: ${esc(c.hoy)} Tocá para ver la solución.">
-        <div class="card-inner">
-          <div class="face"><div class="face-tag">Hoy</div><p>${esc(c.hoy)}</p><div class="face-foot"><span>Ver con byu.</span><span aria-hidden="true">↻</span></div></div>
-          <div class="face face-back"><div class="face-tag">Con byu.</div><p>${esc(c.con)}</p><div class="face-foot">Resuelto</div></div>
-        </div>
-      </button>`).join('');
-    syncFlipLabel();
+  // ----- transformación: antes / con byu. + La Y -----
+  const tcards = $$('[data-tcard]'), TOTAL = tcards.length;
+  let tTimers = [];
+  const tOn = b => b.getAttribute('aria-pressed') === 'true';
+  const tCount = () => tcards.filter(tOn).length;
+  function transChanged(prev) {
+    const n = tCount(), f = n / TOTAL;
+    $('[data-bar-fill]').style.transform = `scaleX(${f.toFixed(4)})`;
+    $('[data-tval]').textContent = n + ' de ' + TOTAL;
+    $('[data-verdict]').textContent = n === 0 ? 'Así está hoy: todo depende de vos.'
+      : n === TOTAL ? 'Tu negocio funciona solo. Vos te ocupás de crecer.'
+      : `Ya tenés ${n} de ${TOTAL} en automático. Seguí tocando.`;
+    $$('[data-tmode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tmode === 'antes' ? n === 0 : n === TOTAL)));
+    updateY(f);
+    if (prev == null || n === prev) return;
+    hop();
+    if (n === TOTAL) celebrate();
   }
-  function setCard(btn, on) {
-    const c = T().cards[+btn.dataset.card];
-    btn.setAttribute('aria-pressed', String(on));
-    btn.setAttribute('aria-label', on ? 'Con byu.: ' + c.con : 'Hoy: ' + c.hoy + ' Tocá para ver la solución.');
+  function setAll(on, stagger) {
+    tTimers.forEach(clearTimeout); tTimers = [];
+    const list = tcards.filter(b => tOn(b) !== on);
+    if (!stagger || rm) { const prev = tCount(); list.forEach(b => b.setAttribute('aria-pressed', String(on))); transChanged(prev); return; }
+    list.forEach((b, i) => tTimers.push(setTimeout(() => { const prev = tCount(); b.setAttribute('aria-pressed', String(on)); transChanged(prev); }, i * 260)));
   }
-  function syncFlipLabel() {
-    const all = $$('.card', cardsBox).every(b => b.getAttribute('aria-pressed') === 'true');
-    flipLabel.textContent = all ? 'Volver a hoy' : 'Ver todo con byu.';
-  }
-  cardsBox.addEventListener('click', e => {
-    const b = e.target.closest('.card'); if (!b) return;
-    setCard(b, b.getAttribute('aria-pressed') !== 'true'); syncFlipLabel();
+  $('[data-tgrid]').addEventListener('click', e => {
+    const b = e.target.closest('[data-tcard]'); if (!b) return;
+    S.tTouched = true; tTimers.forEach(clearTimeout); tTimers = [];
+    const prev = tCount(); b.setAttribute('aria-pressed', String(!tOn(b))); transChanged(prev);
   });
-  $('[data-flip-all]').addEventListener('click', () => {
-    const cards = $$('.card', cardsBox), all = cards.every(b => b.getAttribute('aria-pressed') === 'true');
-    cards.forEach(b => setCard(b, !all)); syncFlipLabel();
-  });
-
-  // ----- calculadora + La Y -----
-  const slidersBox = $('[data-sliders]');
-  function nums() {
-    const v = vals[S.rubro];
-    const loss = S.rubro === 'clinica' ? v.prof * v.turnos * 22 * v.valor * v.aus / 100 : v.socios * v.bajas / 100 * v.cuota + v.consultas * 0.2 * v.cuota;
-    return { loss, rec: loss / 3 };
+  $$('[data-tmode]').forEach(b => b.addEventListener('click', () => { S.tTouched = true; setAll(b.dataset.tmode === 'despues', true); }));
+  // La primera vez que se ve la sección, el negocio se transforma solo (si nadie tocó nada)
+  function transIn() {
+    if (S.tAuto) return; S.tAuto = true;
+    if (!rm) later(() => { if (!S.tTouched) setAll(true, true); }, 600);
   }
-  const shown = sl => (sl.pre || '') + fmt(vals[S.rubro][sl.key]) + (sl.suf || '');
-  function renderSliders() {
-    slidersBox.innerHTML = T().calc.map(sl => `
-      <label class="slider"><span class="slider-top"><span class="slider-label">${esc(sl.label)}</span><span class="slider-val" data-shown="${sl.key}">${shown(sl)}</span></span>
-      <input type="range" min="${sl.min}" max="${sl.max}" step="${sl.step}" value="${vals[S.rubro][sl.key]}" data-key="${sl.key}" aria-valuetext="${shown(sl)}"></label>`).join('');
-  }
-  slidersBox.addEventListener('input', e => {
-    const k = e.target.dataset.key; if (!k) return;
-    const before = nums();
-    vals[S.rubro][k] = +e.target.value;
-    const sl = T().calc.find(s => s.key === k);
-    $(`[data-shown="${k}"]`, slidersBox).textContent = shown(sl);
-    e.target.setAttribute('aria-valuetext', shown(sl));
-    calcChanged(before);
-  });
-  function calcChanged(before) {
-    const after = nums();
-    renderCalcStatic();
-    if (!S.calcSeen || Math.round(before.loss) === Math.round(after.loss)) return;
-    tween(false); hop(); updateY(after.rec);
-    if (before.rec <= DATA.comun.costo && after.rec > DATA.comun.costo) celebrate();
-  }
-  function renderCalcStatic() {
-    const { loss, rec } = nums(), cost = DATA.comun.costo, max = Math.max(rec, cost) * 1.15;
-    $('[data-bar-fill]').style.transform = `scaleX(${(rec / max).toFixed(4)})`;
-    $('[data-bar-cost]').style.left = (cost / max * 100).toFixed(2) + '%';
-    $('[data-cost-txt]').textContent = 'USD ' + fmt(cost);
-    $('[data-verdict]').textContent = rec > cost
-      ? `Te quedan USD ${fmt(rec - cost)} por mes después de pagar byu.`
-      : 'Con estos números todavía no se paga solo. Escribinos y vemos por dónde conviene empezar.';
-    $('[data-loss-sr]').textContent = 'Perdés USD ' + fmt(loss) + ' por mes. Plata recuperada: USD ' + fmt(rec) + ' por mes.';
-  }
-  function tween(fromZero) {
-    const n = nums();
-    [['loss', n.loss], ['rec', n.rec]].forEach(([k, v]) => {
-      const el = $(`[data-num="${k}"]`);
-      const from = fromZero ? 0 : (el._v || 0);
-      cancelAnimationFrame(el._raf);
-      if (rm) { el._v = v; el.textContent = fmt(v); return; }
-      const t0 = performance.now(), dur = fromZero ? 1100 : 550;
-      const step = t => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3), x = from + (v - from) * e; el._v = x; el.textContent = fmt(x); if (p < 1) el._raf = requestAnimationFrame(step); };
-      el._raf = requestAnimationFrame(step);
-    });
-  }
-  function updateY(rec) {
-    const k = 1 + Math.min(rec / 4000, 0.45);
+  function updateY(f) {
+    const k = 1 + 0.45 * f;
     $('[data-ypath]').style.transform = `scaleY(${k.toFixed(3)})`;
     $('[data-yheadpos]').style.transform = `translateY(${(-(k - 1) * 132).toFixed(1)}px)`;
   }
+
   function hop() {
     const h = $('[data-yhead]'); if (!h || rm) return;
     h.animate([{ transform: 'none' }, { transform: 'translateY(-22px) scale(.9,1.1)', offset: 0.4 }, { transform: 'translateY(0) scale(1.18,.82)', offset: 0.75 }, { transform: 'none' }], { duration: 420, easing: 'ease-out' });
@@ -390,12 +262,6 @@
       p.animate([{ transform: 'translate(0,0) scale(.3)', opacity: 1 }, { transform: `translate(${x}px,${y}px) scale(1)`, opacity: 1, offset: 0.55 }, { transform: `translate(${x * 1.1}px,${y + 100}px) scale(.6)`, opacity: 0 }], { duration: 1000 + Math.random() * 400, delay: 200, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'backwards' }).onfinish = () => p.remove();
     }
   }
-  function calcIn() {
-    if (S.calcSeen) return; S.calcSeen = true;
-    const { rec } = nums();
-    tween(true); updateY(rec);
-    if (rec > DATA.comun.costo) later(celebrate, 1150);
-  }
 
   // ----- noche -----
   const night = $('[data-night]'), nightChat = $('[data-night-chat]'), nightEmpty = $('[data-night-empty]'), nightRange = $('[data-night-range]');
@@ -408,7 +274,7 @@
   })();
   let nightShown = 0;
   function renderNight(resetMsgs) {
-    const n = S.night, msgs = T().night;
+    const n = S.night, msgs = DATA.night;
     const mins = 18 * 60 + Math.round(n * 9 * 60), hh = Math.floor(mins / 60) % 24, mm = mins % 60;
     const hour = String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0');
     $('[data-hour]').textContent = hour;
@@ -436,11 +302,7 @@
 
   // ----- copiloto -----
   const copi = $('[data-copi]');
-  function renderCopi() {
-    const c = T().copiloto;
-    copi.innerHTML = `<p>${esc(c.saludo)}</p>` + c.items.map((t, i) => `<div class="copi-item"><span class="copi-n">${i + 1}</span><span class="copi-t">${esc(t)}</span><span class="copi-done" aria-label="hecho"></span></div>`).join('');
-    if (!rm && !copi._done) $$(':scope > *', copi).forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(16px)'; });
-  }
+  if (!rm) $$(':scope > *', copi).forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(16px)'; });
   function stagger(t) {
     if (t._done) return; t._done = true;
     [...t.children].forEach((c, i) => { c.style.opacity = ''; c.style.transform = ''; if (!rm) c.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: i * 240, easing: E, fill: 'backwards' }); });
@@ -456,8 +318,8 @@
   // ----- formulario -----
   $('[data-form]').addEventListener('submit', e => {
     e.preventDefault();
-    const f = e.target, rub = f.rubro.value === 'clinica' ? 'una clínica' : 'un gimnasio';
-    const txt = `Hola byu., soy ${f.nombre.value.trim()}. Tengo ${rub} y quiero dejar de perder plata. Mi WhatsApp: ${f.wa.value.trim()}.`;
+    const f = e.target, neg = f.negocio.value.trim();
+    const txt = `Hola byu., soy ${f.nombre.value.trim()}.` + (neg ? ` Mi negocio: ${neg}.` : '') + ` Quiero automatizarlo. Mi WhatsApp: ${f.wa.value.trim()}.`;
     const test = $('[data-form-test]');
     if (numero()) { test.hidden = true; window.open(wa(txt), '_blank', 'noopener'); }
     else { test.innerHTML = '<b>Modo prueba:</b> todavía no cargamos el número de WhatsApp. Este es el mensaje que se va a mandar: “' + esc(txt) + '”'; test.hidden = false; popIn(test); }
@@ -465,21 +327,6 @@
 
   // ----- footer -----
   if (INSTAGRAM_URL) { const ig = $('[data-instagram]'); ig.href = INSTAGRAM_URL; ig.hidden = false; }
-
-  // ----- cambio de rubro -----
-  function setRubro(r, first) {
-    if (!first && r === S.rubro) return;
-    S.rubro = r; store.set('byu_rubro', r);
-    renderText(); renderCards(); renderSliders(); renderCalcStatic(); renderCopi(); renderNight(true); setLinks();
-    if (!first) {
-      if (copi._done) { copi._done = false; stagger(copi); }
-      const h = $('[data-hero-title]'); h._done = true;   // ya visible: sin animar de nuevo
-      if (S.calcSeen) { tween(false); updateY(nums().rec); }
-      startChat();
-    }
-  }
-  $$('[data-rubro]').forEach(b => b.addEventListener('click', () => setRubro(b.dataset.rubro)));
-  $('[data-replay-chat]').addEventListener('click', startChat);
 
   // ----- búhos con vida -----
   let ptr = null;
@@ -590,8 +437,10 @@
   }
 
   // ----- arranque -----
-  $$('[data-reveal]:not([data-hero-title])').forEach(h => splitTitle(h));
-  setRubro(S.rubro, true);
+  $$('[data-reveal]').forEach(h => splitTitle(h));
+  setLinks(); renderNight(true); transChanged();
+  $('[data-chat-aria]').setAttribute('aria-label', 'Demo de chat: ' + DATA.chat.map(m => m.text || (m.title + ', ' + m.detail)).join(' / '));
+  $('[data-replay-chat]').addEventListener('click', startChat);
   if (!rm) {
     $$('[data-reveal]').forEach(prime);
     $$('[data-hero-logo],[data-replay]').forEach(primeLogo);
@@ -607,8 +456,8 @@
     else if (t.hasAttribute('data-stagger')) stagger(t);
   }), { threshold: 0.3 });
   $$('[data-reveal]:not([data-hero-title]),[data-replay],[data-stagger],[data-hero-logo]').forEach(e => io.observe(e));
-  const ioCalc = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) calcIn(); }), { threshold: 0.12 });
-  ioCalc.observe($('[data-num="loss"]'));
+  const ioTrans = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) transIn(); }), { rootMargin: '0px 0px -40% 0px' });
+  ioTrans.observe($('[data-tgrid]'));
 
   if (!rm) {
     owlLife();
