@@ -25,6 +25,10 @@ El diseño viene de Claude Design y está pasado a HTML/CSS/JS propio, sin depen
 - Fotos del equipo en `index.html` (hoy hay iniciales).
 - Precios a confirmar entre los socios.
 
+## Vista en dispositivos
+`dispositivos.html` muestra la landing en 7 pantallas a la vez, desde celulares hasta un monitor Full HD. Todas se pueden usar y el scroll se mueve sincronizado.
+Versión publicada: https://ramadellatorre-ux.github.io/byu-web/dispositivos.html
+
 ## Correr localmente
 ```bash
 python3 -m http.server 8080
