@@ -24,7 +24,7 @@ El diseño viene de Claude Design y está pasado a HTML/CSS/JS propio, sin depen
 - Textos clave en el HTML (no se generan con JS), para que Google los lea directo.
 
 ## Pendientes antes de salir a vender
-- `script.js` → `NUMERO`: el número de WhatsApp, con código de país y sin `+`. Mientras esté vacío, el formulario muestra el mensaje en **modo prueba**.
+- ✅ `script.js` → `NUMERO`: cargado (11 2154-7064 → `5491121547064`).
 - `script.js` → `INSTAGRAM_URL`: cuando esté confirmado el usuario.
 - Fotos del equipo en `index.html` (hoy hay iniciales).
 - Precios a confirmar entre los socios.

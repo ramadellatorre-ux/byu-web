@@ -5,7 +5,7 @@
   // ===== CONFIGURACIÓN =====
   // Número de WhatsApp con código de país, sin + ni espacios (ej: 5491112345678).
   // Mientras esté vacío, los botones llevan al formulario y el formulario muestra el mensaje en modo prueba.
-  const NUMERO = '';
+  const NUMERO = '5491121547064';
   // Instagram: completar cuando esté confirmado el usuario (ej: 'https://instagram.com/byusoftware').
   const INSTAGRAM_URL = '';
 
