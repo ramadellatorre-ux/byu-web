@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 <script>
 /* Loader solo en la primera visita (y nunca con "reducir movimiento") */
 try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches && localStorage.getItem('byu_visto') !== '1') document.documentElement.classList.add('show-loader'); } catch (e) {}
@@ -199,7 +199,7 @@ try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches && localStorag
       <article class="plan plan--featured">
         <div class="plan-tag">Precio fundador</div>
         <h3>Implementación</h3>
-        <div><div class="plan-desde">desde</div><div class="plan-price"><span class="plan-cur">USD</span><span class="plan-amt">300</span></div></div>
+        <div class="plan-price plan-price--from"><span class="plan-from">Desde</span><span class="plan-cur">USD</span><span class="plan-amt">300</span></div>
         <p>Lo que tu negocio necesita, andando en 30 días. Pagás la mitad para arrancar y la otra mitad cuando lo ves funcionando.</p>
         <a class="btn " data-btn href="#contacto" data-plan data-msg="Hola byu., quiero ser fundador." target="_blank" rel="noopener"><span class="lbl">Quiero ser fundador</span><span class="bdot"></span><span class="barrow" aria-hidden="true">→</span></a>
       </article>

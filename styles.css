@@ -244,6 +244,8 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .plan-price{display:flex;align-items:baseline;gap:8px;margin-top:8px;flex-wrap:wrap}
 .plan-cur{font:700 16px/1 Unbounded,sans-serif}
 .plan-amt{font:800 clamp(44px,5vw,64px)/.9 Unbounded,sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.plan-price--from{margin-top:4px;row-gap:4px}
+.plan-from{flex-basis:100%;font:800 clamp(26px,2.6vw,34px)/1 Unbounded,sans-serif;letter-spacing:-.03em;color:var(--orange-ink)}
 .plan-amt--word{font-size:clamp(40px,4.4vw,56px)}
 .plan-unit{font:600 15px/1 Manrope,sans-serif;color:var(--soft)}
 .plan p{margin:0;font:400 17px/1.6 Manrope,sans-serif;color:var(--soft)}
