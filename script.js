@@ -47,8 +47,8 @@
   const numero = () => NUMERO.replace(/\D/g, '');
   const wa = txt => numero() ? 'https://wa.me/' + numero() + '?text=' + encodeURIComponent(txt) : '#contacto';
   function setLinks() {
-    $$('[data-wa]').forEach(a => { a.href = wa(DATA.waText); toggleTarget(a); });
-    $$('[data-plan]').forEach(a => { a.href = wa('Hola byu., quiero el plan ' + a.dataset.plan + ' para mi negocio.'); toggleTarget(a); });
+    $$('[data-wa]').forEach(a => { a.href = wa(a.dataset.msg || DATA.waText); toggleTarget(a); });
+    $$('[data-plan]').forEach(a => { a.href = wa(a.dataset.msg); toggleTarget(a); });
   }
   function toggleTarget(a) { if (numero()) a.target = '_blank'; else a.removeAttribute('target'); }
 
@@ -302,7 +302,7 @@
 
   // ----- copiloto -----
   const copi = $('[data-copi]');
-  if (!rm) $$(':scope > *', copi).forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(16px)'; });
+  if (!rm) $$('[data-stagger] > *').forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(16px)'; });
   function stagger(t) {
     if (t._done) return; t._done = true;
     [...t.children].forEach((c, i) => { c.style.opacity = ''; c.style.transform = ''; if (!rm) c.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: i * 240, easing: E, fill: 'backwards' }); });
@@ -319,7 +319,7 @@
   $('[data-form]').addEventListener('submit', e => {
     e.preventDefault();
     const f = e.target, neg = f.negocio.value.trim();
-    const txt = `Hola byu., soy ${f.nombre.value.trim()}.` + (neg ? ` Mi negocio: ${neg}.` : '') + ` Quiero automatizarlo. Mi WhatsApp: ${f.wa.value.trim()}.`;
+    const txt = `Hola byu., soy ${f.nombre.value.trim()}.` + (neg ? ` Mi negocio: ${neg}.` : '') + ` Quiero ser fundador. Mi WhatsApp: ${f.wa.value.trim()}.`;
     const test = $('[data-form-test]');
     if (numero()) { test.hidden = true; window.open(wa(txt), '_blank', 'noopener'); }
     else { test.innerHTML = '<b>Modo prueba:</b> todavía no cargamos el número de WhatsApp. Este es el mensaje que se va a mandar: “' + esc(txt) + '”'; test.hidden = false; popIn(test); }
@@ -453,9 +453,11 @@
     if (!e.isIntersecting) return;
     if (t.hasAttribute('data-reveal')) reveal(t);
     else if (t.hasAttribute('data-replay')) logoIn(t);
-    else if (t.hasAttribute('data-stagger')) stagger(t);
   }), { threshold: 0.3 });
-  $$('[data-reveal]:not([data-hero-title]),[data-replay],[data-stagger],[data-hero-logo]').forEach(e => io.observe(e));
+  $$('[data-reveal]:not([data-hero-title]),[data-replay],[data-hero-logo]').forEach(e => io.observe(e));
+  // Listas largas: aparecen apenas entran en pantalla, aunque la pantalla sea baja
+  const ioStag = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) stagger(e.target); }), { rootMargin: '0px 0px -15% 0px' });
+  $$('[data-stagger]').forEach(e => ioStag.observe(e));
   const ioTrans = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) transIn(); }), { rootMargin: '0px 0px -40% 0px' });
   ioTrans.observe($('[data-tgrid]'));
 
