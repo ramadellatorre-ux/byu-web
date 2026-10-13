@@ -31,7 +31,7 @@ El diseño viene de Claude Design y está pasado a HTML/CSS/JS propio, sin depen
 
 ## Vista en dispositivos
 `dispositivos.html` muestra la landing en 7 pantallas a la vez, desde celulares hasta un monitor Full HD. Todas se pueden usar y el scroll se mueve sincronizado.
-Versión publicada: https://ramadellatorre-ux.github.io/byu-web/dispositivos.html
+Versión publicada: https://byusoftware.com/dispositivos.html
 
 ## Correr localmente
 ```bash
