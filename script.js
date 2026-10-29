@@ -11,18 +11,18 @@
 
   // ===== CONTENIDO =====
   const DATA = {
-    waText: 'Hola byu., quiero automatizar mi negocio.',
+    waText: 'Hola byu., quiero recuperar las cuotas atrasadas de mi gimnasio.',
     chat: [
-      { who: 'in', text: '¡Hola! ¿Tienen turno esta semana?', time: '23:41' },
-      { who: 'out', text: '¡Hola Sofi! Sí: jueves 10:30 o viernes 16:00. ¿Cuál te queda mejor?', time: '23:41' },
-      { who: 'in', text: 'Jueves 10:30.', time: '23:42' },
-      { who: 'card', title: 'Turno confirmado', detail: 'Jueves 10:30', note: 'Te mandamos el link de pago y te lo recordamos 24 h antes.', time: '23:42' }
+      { who: 'out', text: 'Hola Sofi 👋 Hace 12 días que no te vemos. ¿Todo bien? Esta semana hay funcional a las 19 y a las 20.', time: '18:05' },
+      { who: 'in', text: 'Sí, tuve lío en el trabajo 😅 Mañana a las 19 voy.', time: '18:11' },
+      { who: 'out', text: '¡Genial! Te esperamos. Tu cuota de noviembre ya está para pagar acá: mpago.la/sofi-nov', time: '18:11' },
+      { who: 'card', title: 'Cuota pagada', detail: 'Noviembre · $35.000', note: 'Sofi volvió y está al día. Ya quedó anotado.', time: '18:13' }
     ],
     night: [
-      { who: 'in', text: 'Hola, ¿mañana tienen lugar a la mañana?', time: '23:12' },
-      { who: 'out', text: '¡Hola Marta! Sí: 9:15 o 11:40. ¿Cuál te reservo?', time: '23:12' },
-      { who: 'in', text: '9:15', time: '23:14' },
-      { who: 'out', text: 'Listo, quedó confirmado. Te lo recuerdo mañana a las 8.', time: '23:14' }
+      { who: 'out', text: 'Hola Marta 👋 Tu cuota de noviembre venció hoy. La pagás acá en 10 segundos: mpago.la/marta-nov', time: '21:00' },
+      { who: 'in', text: 'Uh, me olvidé. Ya la pago.', time: '23:12' },
+      { who: 'out', text: '¡Listo, Marta! Pago recibido. Nos vemos mañana 💪', time: '23:13' },
+      { who: 'in', text: '🙌', time: '23:14' }
     ]
   };
   // Los textos de la transformación, el copiloto y las preguntas están en index.html.
@@ -215,7 +215,7 @@
     $('[data-bar-fill]').style.transform = `scaleX(${f.toFixed(4)})`;
     $('[data-tval]').textContent = n + ' de ' + TOTAL;
     $('[data-verdict]').textContent = n === 0 ? 'Así está hoy: todo depende de vos.'
-      : n === TOTAL ? 'Tu negocio funciona solo. Vos te ocupás de crecer.'
+      : n === TOTAL ? 'Tu gimnasio cobra solo. Vos te ocupás de entrenar.'
       : `Ya tenés ${n} de ${TOTAL} en automático. Seguí tocando.`;
     $$('[data-tmode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tmode === 'antes' ? n === 0 : n === TOTAL)));
     updateY(f);
@@ -319,7 +319,7 @@
   $('[data-form]').addEventListener('submit', e => {
     e.preventDefault();
     const f = e.target, neg = f.negocio.value.trim();
-    const txt = `Hola byu., soy ${f.nombre.value.trim()}.` + (neg ? ` Mi negocio: ${neg}.` : '') + ` Quiero ser fundador. Mi WhatsApp: ${f.wa.value.trim()}.`;
+    const txt = `Hola byu., soy ${f.nombre.value.trim()}.` + (neg ? ` Mi gimnasio: ${neg}.` : '') + ` Quiero recuperar las cuotas atrasadas (Programa Fundadores). Mi WhatsApp: ${f.wa.value.trim()}.`;
     const test = $('[data-form-test]');
     if (numero()) { test.hidden = true; window.open(wa(txt), '_blank', 'noopener'); }
     else { test.innerHTML = '<b>Modo prueba:</b> todavía no cargamos el número de WhatsApp. Este es el mensaje que se va a mandar: “' + esc(txt) + '”'; test.hidden = false; popIn(test); }
