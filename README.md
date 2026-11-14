@@ -1,6 +1,6 @@
 # byu. — Landing
 
-Landing de **byu.**: automatización con IA para negocios de servicios (WhatsApp 24/7, turnos, recordatorios y cobros). No nombra rubros a propósito, para no dejar afuera a ningún negocio.
+Landing de **byu.**: automatización con IA y software a medida para cualquier negocio (WhatsApp 24/7, turnos, cobros y seguimiento de clientes). Entra por el problema, no por el rubro, y nombra varios rubros como ejemplo para que nadie se sienta afuera (MEMORIA §19).
 El diseño viene de Claude Design y está pasado a HTML/CSS/JS propio, sin dependencias. Solo usa Google Fonts.
 
 ## Archivos
